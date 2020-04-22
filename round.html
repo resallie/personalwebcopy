@@ -1,0 +1,208 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+
+    <!-- new-ka COLA -->
+    <script src="js/jquery-3.4.1.min.js"></script>
+    <script src="js/bootstrap.js"></script>
+    <script src="js/datatables.min.js"></script>
+    <script src="js/mdb.js"></script>
+    <!--
+    <script src="js/photo-sphere-viewer.min.js"></script>
+    <script src="js/three.min.js"></script>
+    <script src="js/polyfills.js"></script>
+    <script src="js/Event.js"></script>
+    <script src="js/EventEmitter.js"></script>
+    <script type="text/javascript" src="js/doT.min.js"></script> -->
+    <script defer src="js/all.js"></script> <!--load all styles -->
+    <link rel="stylesheet" type="text/css" href="css/bootstrap.css">
+    <link rel="stylesheet" type="text/css" href="css/datatables.min.css">
+    <link rel="stylesheet" type="text/css" href="css/mdb.css" />
+    <!--
+    <link rel="stylesheet" type="text/css" href="css/photo-sphere-viewer.min.css" />-->
+    <link href="css/all.css" rel="stylesheet"> <!--load all styles -->
+
+    <link rel="icon" type="image/png" href="https://photo-sphere-viewer.js.org/favicon.png" />
+
+
+    <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+      <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+
+    
+    <link href="https://photo-sphere-viewer.js.org/assets/css/docs.min.css" rel="stylesheet">
+    <link href="https://photo-sphere-viewer.js.org/assets/css/style.css" rel="stylesheet">
+
+    
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/photo-sphere-viewer@3.5.0/dist/photo-sphere-viewer.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/three@0.99.0/build/three.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/promise-polyfill@8.1.0/dist/polyfill.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/dot@1.1.2/doT.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/uevent@1.0.0/uevent.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/photo-sphere-viewer@3.5.0/dist/photo-sphere-viewer.min.js"></script>
+
+ 
+   
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootbox.js/4.3.0/bootbox.min.js"></script>
+    <script src="https://photo-sphere-viewer.js.org/assets/js/docs.min.js"></script>
+    <script src="https://photo-sphere-viewer.js.org/assets/js/script.js"></script>
+</head>
+<body>
+
+
+
+
+    <!-- Menu -->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <a class="navbar-brand" href="#">
+            <img src="images/wpi.png" width="100" alt="">
+        </a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav mr-auto">
+                <li class="nav-item ">
+                    <a class="nav-link" href="index.html">Home</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="team.html">Meet the Team</a>
+                </li>
+                <li class="nav-item ">
+                    <a class="nav-link" href="cats.html">Meet the Cats </a>
+                </li>
+                <li class="nav-item ">
+                    <a class="nav-link" href="report.html">Read Full Report </a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="proto.html">Recommendation Prototype</a>
+                </li>
+                <li class="nav-item active">
+                    <a class="nav-link" href="round.html">Photo Spheres <span class="sr-only">(current)</span></a>
+                </li>
+                <!--
+    <li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            Dropdown
+        </a>
+        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+            <a class="dropdown-item" href="#">Action</a>
+            <a class="dropdown-item" href="#">Another action</a>
+            <div class="dropdown-divider"></div>
+            <a class="dropdown-item" href="#">Something else here</a>
+        </div>
+    </li>
+
+    <li class="nav-item">
+        <a class="nav-link disabled" href="#">Disabled</a>
+    </li>
+        -->
+            </ul>
+            <!--
+            <form class="form-inline my-2 my-lg-0">
+                <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
+                <button class="btn btn-elegant my-2 my-sm-0" type="submit">Search</button>
+            </form>-->
+        </div>
+    </nav>
+   
+    
+
+
+
+    <div class="container">
+
+        <div class="row mt-5">
+
+            <div class="col-md-9">
+                <h5>Mount Esja</h5>
+                <div id="esja"></div>
+
+
+                <script>
+                    var PSV = new PhotoSphereViewer({
+                        panorama: "leg.jpg",
+                        container: 'esja',
+                        caption: 'Group Hike on Mount Esja',
+                        loading_img: "https://photo-sphere-viewer.js.org/assets/photosphere-logo.gif",
+                        navbar: 'autorotate zoom download caption fullscreen',
+                        default_fov: 70,
+                        default_lat: 0.3,
+                        mousewheel: false,
+                        touchmove_two_fingers: true,
+                        size: {
+                            height: 500
+                        }
+                    });
+                </script>
+
+            </div>
+
+
+        </div>
+        <div class="row mt-4">
+            <div class="col-md-9">
+                <h5>Mount Esja 2</h5>
+                <div id="esja2"></div>
+
+
+                <script>
+                    var PSV = new PhotoSphereViewer({
+                        panorama: "esja.jpg",
+                        container: 'esja2',
+                        caption: 'Group Hike on Mount Esja',
+                        loading_img: "https://photo-sphere-viewer.js.org/assets/photosphere-logo.gif",
+                        navbar: 'autorotate zoom download caption fullscreen',
+                        default_fov: 70,
+                        default_lat: 0.3,
+                        mousewheel: false,
+                        touchmove_two_fingers: true,
+                        size: {
+                            height: 500
+                        }
+                    });
+                </script>
+
+            </div>
+
+        </div>
+        <div class="row mt-4">
+            <div class="col-md-9">
+                <h5>Hallgrimskirkja Church</h5>
+                <div id="church"></div>
+
+
+                <script>
+                    var PSV = new PhotoSphereViewer({
+                        panorama: "church.jpg",
+                        container: 'church',
+                        caption: 'Inside the Hallgrimskirkja Church',
+                        loading_img: "https://photo-sphere-viewer.js.org/assets/photosphere-logo.gif",
+                        navbar: 'autorotate zoom download caption fullscreen',
+                        default_fov: 70,
+                        default_lat: 0.3,
+                        mousewheel: false,
+                        touchmove_two_fingers: true,
+                        size: {
+                            height: 500
+                        }
+                    });
+                </script>
+
+            </div>
+
+        </div>
+    </div>
+
+
+
+
+
+
+
+
+</body>
+</html>

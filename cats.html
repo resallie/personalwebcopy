@@ -1,0 +1,308 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+    <!-- new-ka COLA -->
+    <script src="js/jquery-3.4.1.min.js"></script>
+    <script src="js/bootstrap.js"></script>
+    <script src="js/datatables.min.js"></script>
+    <script src="js/mdb.js"></script>
+    <script defer src="js/all.js"></script> <!--load all styles -->
+    <link rel="stylesheet" type="text/css" href="css/bootstrap.css">
+    <link rel="stylesheet" type="text/css" href="css/datatables.min.css">
+    <link rel="stylesheet" type="text/css" href="css/mdb.css" />
+    <link href="css/all.css" rel="stylesheet"> <!--load all styles -->
+    <style>
+        img{
+            image-orientation: from-image;
+        }
+    </style>
+</head>
+<body>
+
+
+
+
+    <!-- Menu -->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <a class="navbar-brand" href="#">
+            <img src="images/wpi.png" width="100" alt="">
+        </a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav mr-auto">
+                <li class="nav-item ">
+                    <a class="nav-link" href="index.html">Home</a>
+                </li>
+                <li class="nav-item ">
+                    <a class="nav-link" href="team.html">Meet the Team </a>
+                </li>
+                <li class="nav-item active">
+                    <a class="nav-link" href="cats.html">Meet the Cats <span class="sr-only">(current)</span></a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="report.html">Read Full Report</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="proto.html">Recommendation Prototype</a>
+                </li>
+                <li class="nav-item ">
+                    <a class="nav-link" href="round.html">Photo Spheres</a>
+                </li>
+                <!--
+    <li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            Dropdown
+        </a>
+        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+            <a class="dropdown-item" href="#">Action</a>
+            <a class="dropdown-item" href="#">Another action</a>
+            <div class="dropdown-divider"></div>
+            <a class="dropdown-item" href="#">Something else here</a>
+        </div>
+    </li>
+
+    <li class="nav-item">
+        <a class="nav-link disabled" href="#">Disabled</a>
+    </li>
+        -->
+            </ul>
+            <!--
+    <form class="form-inline my-2 my-lg-0">
+        <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
+        <button class="btn btn-elegant my-2 my-sm-0" type="submit">Search</button>
+    </form>-->
+        </div>
+    </nav>
+    <div class="container d-flex h-100">
+        <!--
+    <div class="row mt-5">
+        <div class="col-12 mt-5">
+            <canvas id="doughnutChart" style="width:750px"></canvas>
+            <script>
+                var ctxD = document.getElementById("doughnutChart").getContext('2d');
+                var myLineChart = new Chart(ctxD, {
+                    type: 'doughnut',
+                    data: {
+                        labels: ["Nature Tours", "Local Tours", "Food", "Exhibitions", "Folklore", "Nightlife", "Shopping", "Public Pools", "Festivals", "Teaching", "Motorsports", "Golfing"],
+                        datasets: [{
+                            data: [59, 37, 35, 32, 16, 16, 13, 12, 7, 5, 2 , 1],
+                            backgroundColor: ["#6dc875", "#F7464A", "#46BFBD", "#FDB45C", "#949FB1", "#4D5360", "#ea7430", "#a763af", "#4c65ca", "#db5ac0", "#e7d54e"],
+                            hoverBackgroundColor: ["#85c38a","#FF5A5E", "#5AD3D1", "#FFC870", "#A8B3C5", "#616774", "#ea9667", "#b87dbf", "#6b81d8", "#e67cd0", "#faee92"]
+                        }]
+                    },
+                    options: {
+                        responsive: true
+                    }
+                });
+            </script>
+        </div>
+    </div>-->
+       
+    <div class="row justify-content-center align-items-center mt-5">
+        <div class="col mb-5 justify-content-center">
+            <div class="card" style="width: 15rem;">
+                <img class="card-img-top" src="images/cat/cat1.jpg" alt="Card image cap">
+                <div class="card-body text-center">
+                    <h5 class="card-title">Cat 1</h5>
+                    <h6 class="font-weight-bold indigo-text py-2">Street Cat</h6>
+                    <div class="row">
+                        <div class="col">
+                            <p class="card-text">Not Pet</p>
+                        </div>
+                        <div class="col">
+                            <p class="card-text">Seen: 8/22/19</p>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+        <div class="col mb-5 justify-content-center">
+            <div class="card" style="width: 15rem;">
+                <img class="card-img-top" src="images/cat/cat2.JPG" alt="Card image cap">
+                <div class="card-body text-center">
+                    <h5 class="card-title">Cat 2</h5>
+                    <h6 class="font-weight-bold indigo-text py-2">Doorway Cat</h6>
+                    <div class="row">
+                        <div class="col">
+                            <p class="card-text">Not Pet</p>
+                        </div>
+                        <div class="col">
+                            <p class="card-text">Seen: 8/22/19</p>
+                        </div>
+                    </div>
+                    <p class="card-text"><b>Best doormat</b></p>
+                </div>
+            </div>
+        </div>
+
+        <div class="col mb-5 justify-content-center">
+            <div class="card" style="width: 15rem;">
+                <img class="card-img-top" src="images/cat/cat3.JPG" alt="Card image cap">
+                <div class="card-body text-center">
+                    <h5 class="card-title">Stella Briem</h5>
+                    <h6 class="font-weight-bold indigo-text py-2">Cafe Cat</h6>
+                    <div class="row">
+                        <div class="col">
+                            <p class="card-text">Pet</p>
+                        </div>
+                        <div class="col">
+                            <p class="card-text">Seen: 8/23/19</p>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+
+        <div class="col mb-5 justify-content-center">
+            <div class="card" style="width: 15rem;">
+                <img class="card-img-top" src="images/cat/cat4.JPG" alt="Card image cap">
+                <div class="card-body text-center">
+                    <h5 class="card-title">Klukka</h5>
+                    <h6 class="font-weight-bold indigo-text py-2">Cafe Cat</h6>
+                    <div class="row">
+                        <div class="col">
+                            <p class="card-text">Pet</p>
+                        </div>
+                        <div class="col">
+                            <p class="card-text">Seen: 8/23/19</p>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+        <div class="col mb-5 justify-content-center">
+            <div class="card" style="width: 15rem;">
+                <img class="card-img-top" src="images/cat/cat5.JPG" alt="Card image cap">
+                <div class="card-body text-center">
+                    <h5 class="card-title">Nala</h5>
+                    <h6 class="font-weight-bold indigo-text py-2">Cafe Cat</h6>
+                    <div class="row">
+                        <div class="col">
+                            <p class="card-text">Pet</p>
+                        </div>
+                        <div class="col">
+                            <p class="card-text">Seen: 8/23/19</p>
+                        </div>
+                    </div>
+                    <p class="card-text"><b>Bee catcher (very fluffy)</b></p>
+
+                </div>
+            </div>
+        </div>
+
+        <div class="col mb-5 justify-content-center">
+            <div class="card" style="width: 15rem;">
+                <img class="card-img-top" src="images/cat/cat6.JPG" alt="Card image cap">
+                <div class="card-body text-center">
+                    <h5 class="card-title">Kattla Kaldal</h5>
+                    <h6 class="font-weight-bold indigo-text py-2">Cafe Cat</h6>
+                    <div class="row">
+                        <div class="col">
+                            <p class="card-text">Pet</p>
+                        </div>
+                        <div class="col">
+                            <p class="card-text">Seen: 8/23/19</p>
+                        </div>
+                    </div>
+                    <p class="card-text"><b>Cute Toes</b></p>
+
+                </div>
+            </div>
+        </div>
+        <div class="col mb-5 justify-content-center">
+            <div class="card" style="width: 15rem;">
+                <img class="card-img-top" src="images/cat/cat7.JPG" alt="Card image cap">
+                <div class="card-body text-center">
+                    <h5 class="card-title">Lexi</h5>
+                    <h6 class="font-weight-bold indigo-text py-2">Cafe Cat</h6>
+                    <div class="row">
+                        <div class="col">
+                            <p class="card-text">Pet</p>
+                        </div>
+                        <div class="col">
+                            <p class="card-text">Seen: 8/23/19</p>
+                        </div>
+                    </div>
+
+
+                </div>
+            </div>
+        </div>
+        <div class="col mb-5 justify-content-center">
+            <div class="card" style="width: 15rem;">
+                <img class="card-img-top" src="images/cat/cat8.JPG" alt="Card image cap">
+                <div class="card-body text-center">
+                    <h5 class="card-title">Mio</h5>
+                    <h6 class="font-weight-bold indigo-text py-2">Cafe Cat</h6>
+                    <div class="row">
+                        <div class="col">
+                            <p class="card-text">Pet</p>
+                        </div>
+                        <div class="col">
+                            <p class="card-text">Seen: 8/23/19</p>
+                        </div>
+                    </div>
+                    <p class="card-text"><b>Best hidey under couch</b></p>
+                    <p class="card-text"><b>Biggest Chonk</b></p>
+
+                </div>
+            </div>
+        </div>
+        <div class="col mb-5 justify-content-center">
+            <div class="card" style="width: 15rem;">
+                <img class="card-img-top" src="images/cat/cat9.JPG" alt="Card image cap">
+                <div class="card-body text-center">
+                    <h5 class="card-title mb-n1">Ofelia </h5>
+                    <a href="https://instagram.com/ofeliasnobbycat?igshid=1lodau4gkp4yz" class="card-text my-0 py-0 mt-n3">@ofeliasnobbycat</a>
+                    <h6 class="font-weight-bold indigo-text py-2">Shop Cat</h6>
+                    <div class="row">
+                        <div class="col">
+                            <p class="card-text">Pet</p>
+                        </div>
+                        <div class="col">
+                            <p class="card-text">Seen: 8/23/19</p>
+                        </div>
+                    </div>
+                    <p class="card-text"><b>Softest Cat Ever</b></p>
+
+                </div>
+            </div>
+        </div>
+        <div class="col mb-5 justify-content-center">
+            <div class="card" style="width: 15rem;">
+                <img class="card-img-top" src="images/cat/cat10.jpg" alt="Card image cap">
+                <div class="card-body text-center">
+                    <h5 class="card-title">Yule Cat</h5>
+                    <h6 class="font-weight-bold indigo-text py-2">Angry Street Cat</h6>
+                    <div class="row">
+                        <div class="col">
+                            <p class="card-text">Not Pet</p>
+                        </div>
+                        <div class="col">
+                            <p class="card-text">Seen: 8/23/19</p>
+                        </div>
+                    </div>
+                    <p class="card-text"><b>Loudest Angry Meow</b></p>
+
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+       
+    </div>
+
+
+
+
+
+</body>
+</html>

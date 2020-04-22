@@ -1,0 +1,332 @@
+
+
+<!DOCTYPE html>
+<html>
+
+<head>
+    
+    <!-- new-ka COLA -->
+    <script src="js/jquery-3.4.1.min.js"></script>
+    <script src="js/bootstrap.js"></script>
+    <script src="js/datatables.min.js"></script>
+    <script src="js/mdb.js"></script>
+
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/openlayers/openlayers.github.io@master/en/v6.0.1/css/ol.css" type="text/css">
+    <style>
+        .map {
+            height: 400px;
+            width: 100%;
+        }
+
+        .ol-popup {
+            position: absolute;
+            background-color: white;
+            -webkit-filter: drop-shadow(0 1px 4px rgba(0,0,0,0.2));
+            filter: drop-shadow(0 1px 4px rgba(0,0,0,0.2));
+            padding: 15px;
+            border-radius: 10px;
+            border: 1px solid #cccccc;
+            bottom: 12px;
+            left: -50px;
+            min-width: 280px;
+        }
+
+            .ol-popup:after, .ol-popup:before {
+                top: 100%;
+                border: solid transparent;
+                content: " ";
+                height: 0;
+                width: 0;
+                position: absolute;
+                pointer-events: none;
+            }
+
+            .ol-popup:after {
+                border-top-color: white;
+                border-width: 10px;
+                left: 48px;
+                margin-left: -10px;
+            }
+
+            .ol-popup:before {
+                border-top-color: #cccccc;
+                border-width: 11px;
+                left: 48px;
+                margin-left: -11px;
+            }
+
+        .ol-popup-closer {
+            text-decoration: none;
+            position: absolute;
+            top: 2px;
+            right: 8px;
+        }
+
+            .ol-popup-closer:after {
+                content: "x";
+            }
+    </style>
+    <script src="https://cdn.jsdelivr.net/gh/openlayers/openlayers.github.io@master/en/v6.0.1/build/ol.js"></script>
+    <script defer src="js/all.js"></script> <!--load all styles -->
+    <link rel="stylesheet" type="text/css" href="css/bootstrap.css">
+    <link rel="stylesheet" type="text/css" href="css/datatables.min.css">
+    <link rel="stylesheet" type="text/css" href="css/mdb.css" />
+    <link href="css/all.css" rel="stylesheet"> <!--load all styles -->
+</head>
+<body>
+
+
+
+
+    <!-- Menu -->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-primary fixed-top">
+        <a class="navbar-brand" href="https://visitreykjavik.is">
+            <img src="images/proto/logo.png" width="75" alt="">
+        </a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav mr-auto">
+                <li class="nav-item">
+                    <a class="nav-link" href="proto.html">Home </a>
+                </li>
+                <li class="nav-item active">
+                    <a class="nav-link" href="map.html">Event Map <span class="sr-only">(current)</span></a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="event.html">Things To Do</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="form.html">Add Your Event</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="index.html">Back to IQP Website</a>
+                </li>
+                <!--
+        <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                Dropdown
+            </a>
+            <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                <a class="dropdown-item" href="#">Action</a>
+                <a class="dropdown-item" href="#">Another action</a>
+                <div class="dropdown-divider"></div>
+                <a class="dropdown-item" href="#">Something else here</a>
+            </div>
+        </li>
+
+        <li class="nav-item">
+            <a class="nav-link disabled" href="#">Disabled</a>
+        </li>
+            -->
+            </ul>
+            <!--
+    <form class="form-inline my-2 my-lg-0">
+        <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
+        <button class="btn btn-indigo my-2 my-sm-0" type="submit">Search</button>
+    </form>-->
+        </div>
+    </nav>
+    <div class="container mt-5">
+        <div class="row mt-5">
+            <div class="col mt-5">
+                <h2 class="mt-5">Find Nearby Events</h2>
+                <div id="map" class="map"></div>
+                <div id="popup" class="ol-popup">
+                    <a href="#" id="popup-closer" class="ol-popup-closer"></a>
+                    <div id="popup-content"> '<b>Jazz Night 9PM at Gambla Bio!</b><br />Starting soon near you.'</div>
+                </div>
+    
+                <script type="text/javascript">
+                  
+
+                    var attribution = new ol.control.Attribution({
+                        collapsible: false
+                    });
+                    var map = new ol.Map({
+                        target: 'map',
+                        layers: [
+                            new ol.layer.Tile({
+                                source: new ol.source.OSM()
+                            })
+                        ],
+                        view: new ol.View({
+                            center: ol.proj.fromLonLat([-21.93394, 64.14691]),
+                            zoom: 18
+                        })
+                    });
+                    var layer = new ol.layer.Vector({
+                        source: new ol.source.Vector({
+                            features: [
+                                new ol.Feature({
+                                    geometry: new ol.geom.Point(ol.proj.fromLonLat([-21.9338434, 64.1469966])),
+                                    name: '<b>Jazz Night 9PM at Gamla Bíó!</b><br />Starting soon near you.'
+
+                                })
+                            ]
+                        })
+                    });
+
+                    var layer2 = new ol.layer.Vector({
+                        source: new ol.source.Vector({
+                            features: [
+                                new ol.Feature({
+                                    geometry: new ol.geom.Point(ol.proj.fromLonLat([-21.9321505, 64.1473013])),
+                                    name: '<b>Culture House new exhibition!</b><br />Open Now!'
+                                })
+                            ]
+                        })
+                    });
+
+                      var layer3 = new ol.layer.Vector({
+                        source: new ol.source.Vector({
+                            features: [
+                                new ol.Feature({
+                                    geometry: new ol.geom.Point(ol.proj.fromLonLat([-21.9314505, 64.1471507])),
+                                    name: '<b>The National Theater of Iceland</b><br />Next Showing in 30 minutes'
+                                })
+                            ]
+                        })
+                      });
+
+                     var layer4 = new ol.layer.Vector({
+                        source: new ol.source.Vector({
+                            features: [
+                                new ol.Feature({
+                                    geometry: new ol.geom.Point(ol.proj.fromLonLat([-21.9348434, 64.1469966])),
+                                    name: '<b>Icelandic Punk Museum</b><br />Now Open!',
+                                   
+                                })
+                            ]
+                        })
+                     });
+                     
+
+                    var iconFeature = new ol.Feature({
+  geometry: new ol.geom.Point(ol.proj.fromLonLat([-21.9332434, 64.1469966])),
+  name: 'You are Here',
+  population: 4000,
+  rainfall: 500
+});
+
+var iconStyle = new ol.style.Style({
+  image: new ol.style.Icon({
+    anchor: [0.5, 46],
+    anchorXUnits: 'fraction',
+    anchorYUnits: 'pixels',
+    src: 'data/icon.png'
+  })
+});
+
+
+                    var circleStyle = new ol.style.Style({
+                        image: new ol.style.Circle({
+                            radius: 18,
+                            fill: new ol.style.Fill({
+                                color: 'white'
+                            }),
+                            stroke: new ol.style.Stroke({
+                                width: 14,
+                                color: 'red'
+                            })
+                        })
+                    });
+                                        var dotStyle = new ol.style.Style({
+                        image: new ol.style.Circle({
+                            radius: 14,
+                            fill: new ol.style.Fill({
+                                color: 'white'
+                            }),
+                            stroke: new ol.style.Stroke({
+                                width: 11,
+                                color: 'fuchsia'
+                            })
+                        })
+                    });
+
+                    
+                    iconFeature.setStyle(circleStyle);
+                    layer.setStyle(dotStyle)
+                    layer2.setStyle(dotStyle)
+                    layer3.setStyle(dotStyle)
+                    layer4.setStyle(dotStyle)
+
+                    var vectorSource = new ol.source.Vector({
+  features: [iconFeature]
+});
+
+var vectorLayer = new ol.layer.Vector({
+  source: vectorSource
+});
+                  
+
+
+
+                    map.addLayer(vectorLayer);
+                    map.addLayer(layer);
+                    map.addLayer(layer2);
+                    map.addLayer(layer3);
+                    map.addLayer(layer4);
+                    var container = document.getElementById('popup');
+                    var content = document.getElementById('popup-content');
+                    var closer = document.getElementById('popup-closer');
+                   
+
+                    var overlay = new ol.Overlay({
+                        element: container,
+                        autoPan: true,
+                        autoPanAnimation: {
+                            duration: 250
+                        }
+                    });
+                    
+                   
+                    map.addOverlay(overlay);
+                 
+
+                    closer.onclick = function () {
+                        overlay.setPosition(undefined);
+                        closer.blur();
+                        return false;
+                    };
+                    
+                   
+                    map.on('pointermove', function (event) {
+                        if (map.hasFeatureAtPixel(event.pixel) === true) {
+                            var coordinate = event.coordinate;
+                            console.log(layer);
+                            console.log(map.getFeaturesAtPixel(event.pixel)[0].values_.name);
+                            console.log('please')
+                            if (map.getFeaturesAtPixel(event.pixel)[0] == layer){
+                                console.log('help');
+                            }
+
+                           
+                            content.innerHTML = map.getFeaturesAtPixel(event.pixel)[0].values_.name;
+                            
+                            overlay.setPosition(coordinate);
+                        } else {
+                            overlay.setPosition(undefined);
+                            closer.blur();
+                        }
+                    });
+                     
+                                    /*
+                    content.innerHTML = '<b> Gambla Bio!</b><br />I am a popup.';
+                    overlay.setPosition(ol.proj.fromLonLat([-21.93394, 64.14691]));
+                    */
+
+                </script>
+            </div>
+        </div>
+
+    </div>
+
+
+
+
+
+</body>
+</html>

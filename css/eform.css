@@ -1,0 +1,209 @@
+﻿body {
+    font-family: verdana,arial,sans-serif;
+    font-size: small;
+    color: #000000;
+}
+
+td {
+    font-family: verdana,arial,sans-serif;
+    font-size: x-small;
+    color: #000000;
+}
+
+/* use h1 for page titles */
+h1 {
+    font-size: large;
+    margin: 0 0 0 0;
+    color: #003366;
+}
+
+/* use h2 for table titles and form section titles */
+h2 {
+    font-size: medium;
+    margin: 0 0 0 0;
+}
+
+h3 {
+    font-size: small;
+}
+
+p {
+    font-size: x-small;
+    margin-top: 0;
+    margin-bottom: 1em;
+}
+
+/* use th for column headers */
+th {
+    /*the following line is the shading of the table column headers*/
+    /*background-color : #999999;*/
+    font-size: x-small;
+}
+
+input {
+    font-family: verdana,arial,sans-serif;
+    font-size: x-small;
+}
+
+/* use dk for darker shaded table rows */
+.dk {
+    background-color: #e0e0e0;
+}
+
+/* use lt for lighter shaded table rows */
+.lt {
+    background-color: #FFFFFF;
+}
+
+/* use logotext to supplement eForm 6 logo */
+.logotext {
+    font-size: xx-small;
+    font-weight: bold;
+    color: #003366;
+}
+
+/* use eform-nav to contain for eForm 6 navigation elements */
+.eform-nav {
+    width: 250px;
+    float: right;
+    border-color: #003366;
+    border-width: 1px;
+    border-style: solid;
+    padding: 3px;
+    margin-left: 5 px;
+}
+
+/* use eform-nav-title to label eForm 6 navigation area */
+.eform-nav-title {
+    font-weight: bold;
+    background-color: #FF0000;
+    text-align: center;
+}
+
+/* use subnav for secondary navigation */
+.subnav {
+    font-size: xx-small;
+    font-weight: bold;
+    color: #333333;
+}
+
+/* use form-note for notes on form fields */
+.form-note {
+    font-size: xx-small;
+    font-weight: normal;
+}
+
+/* use actionbox to contain functions, buttons specific to current page */
+.actionbox {
+    padding: 5px;
+    border-color: #666666;
+    border-width: 1px;
+    border-style: solid;
+    background-color: #999999;
+}
+
+.maintemplate {
+    background-color: #ffffff
+}
+
+/* use box for generic box areas on the page */
+.box {
+    border-color: #666666;
+    border-width: 1px;
+    border-style: solid;
+}
+
+/* use pagination for pagination area when required */
+.pagination {
+    padding: 2px;
+    float: right;
+    font-size: x-small;
+    text-align: right
+}
+
+/* use errorbox for error description area */
+.errorbox {
+    border-color: #CC0000;
+    border-width: 1px;
+    border-style: solid;
+    background-color: #FFFFFF;
+}
+
+/* use error to indicate field in error */
+.error {
+    color: #CC0000;
+    background-color: #FFFFFF;
+}
+
+/* mouseover effect for text links */
+a:hover {
+    background-color: #FFFF99;
+}
+
+.errortext {
+    font-weight: bold;
+    color: #CC0000
+}
+
+/* used for ul tags that will display error messages */
+.errorList {
+    list-style-image: url(/ecola/images/error.gif)
+    /* list-style-image: url(../images/error.gif) */
+}
+
+.skipnav, .skipnav:hover, .skipnav:active, .skipnav:visited {
+    font-size: 1px;
+    color: #ffffff;
+    text-decoration: none
+}
+
+.requiredOnCreate {
+    background-color: #CCFFFF
+}
+
+.requiredOnCompletion {
+    background-color: #FFFF99
+}
+
+.legendtext {
+    font-size: small;
+    font-weight: bold;
+    color: #003366;
+}
+
+/* Use this class to display a red boxed Note */
+.rednote {
+    padding: 5px;
+    border-color: #CC0000;
+    border-width: 1px;
+    border-style: solid;
+    color: #CC0000;
+}
+
+.hide {
+    display: none;
+}
+
+.tooltip_templates {
+    display: none;
+}
+
+.close {
+    width: 18px;
+    height: 18px;
+    position: absolute;
+    top: 0px;
+    right: 0px;
+    background: url('../images/close.png') no-repeat 0 0;
+    cursor: pointer;
+}
+
+/* Hides the 'x' that resets the input field */
+.dbainput::-ms-clear {
+    display: none;
+}
+
+/**
+ *  Rev 2.1   07 June 2005      chhuynh
+ * Modified the pagination by adding padding : 2px; and text-align: right
+ */

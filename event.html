@@ -1,0 +1,726 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+    <!-- scripts and stylesheets -->
+    <script src="js/jquery-3.4.1.min.js"></script>
+    <script src="js/bootstrap.js"></script>
+    <script src="js/datatables.min.js"></script>
+    <script src="js/mdb.js"></script>
+    <script defer src="js/all.js"></script> <!--load all styles -->
+    <link rel="stylesheet" type="text/css" href="css/bootstrap.css">
+    <link rel="stylesheet" type="text/css" href="css/datatables.min.css">
+    <link rel="stylesheet" type="text/css" href="css/mdb.css" />
+    <link href="css/all.css" rel="stylesheet"> <!--load all styles -->
+
+</head>
+<body>
+
+
+
+
+    <!-- Menu -->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-primary fixed-top">
+        <a class="navbar-brand" href="https://visitreykjavik.is">
+            <img src="images/proto/logo.png" width="75" alt="">
+        </a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav mr-auto">
+                <li class="nav-item">
+                    <a class="nav-link" href="proto.html">Home </a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="map.html">Event Map</a>
+                </li>
+                <li class="nav-item active">
+                    <a class="nav-link" href="event.html">Things To Do <span class="sr-only">(current)</span></a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="form.html">Add Your Event</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="index.html">Back to IQP Website</a>
+                </li>
+                <!--
+        <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                Dropdown
+            </a>
+            <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                <a class="dropdown-item" href="#">Action</a>
+                <a class="dropdown-item" href="#">Another action</a>
+                <div class="dropdown-divider"></div>
+                <a class="dropdown-item" href="#">Something else here</a>
+            </div>
+        </li>
+
+        <li class="nav-item">
+            <a class="nav-link disabled" href="#">Disabled</a>
+        </li>
+            -->
+            </ul>
+            <!--
+    <form class="form-inline my-2 my-lg-0">
+        <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
+        <button class="btn btn-indigo my-2 my-sm-0" type="submit">Search</button>
+    </form>-->
+        </div>
+    </nav>
+    <div class="container">
+        <div class="row mt-5">
+            <div class="col-2 mt-5 ml-n5  position-fixed" style="max-width: 19%">
+              <!--  <div class="position-fixed"> -->
+                    <div class="card mt-5" >
+                        <h5 class="card-header">
+                            Filters
+                        </h5>
+                        <div class="card-body">
+                            <h5 class="card-subtitle text-muted mb-2">Price</h5>
+                            <div class="form-check">
+                                <input class="form-check-input" type="checkbox" value="" id="priceCheck4" />
+                                <label class="form-check-label text-muted" for="priceCheck4">
+                                    $$$$
+                                </label>
+                            </div>
+                            <div class="form-check">
+                                <input class="form-check-input" type="checkbox" value="" id="priceCheck3" />
+                                <label class="form-check-label text-muted" for="priceCheck3">
+                                    $$$
+                                </label>
+                            </div>
+                            <div class="form-check">
+                                <input class="form-check-input" type="checkbox" value="" id="priceCheck2" />
+                                <label class="form-check-label text-muted" for="priceCheck2">
+                                    $$
+                                </label>
+                            </div>
+                            <div class="form-check">
+                                <input class="form-check-input" type="checkbox" value="" id="priceCheck1" />
+                                <label class="form-check-label text-muted" for="priceCheck1">
+                                    $
+                                </label>
+                            </div>
+
+                        </div>
+                        <div class="card-body">
+                            <h5 class="card-subtitle text-muted mb-2">Categories</h5>
+                            <div class="form-check">
+                                <input class="form-check-input" type="checkbox" value="" id="catCheck1" />
+                                <label class="form-check-label text-muted" for="catCheck1" style="font-size: 0.9rem">
+                                    Food <span class="badge badge-pill badge-secondary">10</span>
+                                </label>
+                            </div>
+                            <div class="form-check">
+                                <input class="form-check-input" type="checkbox" value="" id="catCheck2" />
+                                <label class="form-check-label text-muted" for="catCheck2" style="font-size: 0.9rem">
+                                    Bars <span class="badge badge-pill badge-secondary">7</span>
+                                </label>
+                            </div>
+                            <div class="form-check">
+                                <input class="form-check-input" type="checkbox" value="" id="catCheck3" />
+                                <label class="form-check-label text-muted" for="catCheck3" style="font-size: 0.9rem">
+                                    Museums <span class="badge badge-pill badge-secondary">13</span>
+                                </label>
+                            </div>
+                            <div class="form-check">
+                                <input class="form-check-input" type="checkbox" value="" id="catCheck4" />
+                                <label class="form-check-label text-muted" for="catCheck4" style="font-size: 0.9rem">
+                                    Monuments <span class="badge badge-pill badge-secondary">5</span>
+                                </label>
+                            </div>
+
+                        </div>
+                    </div>
+               <!-- </div> -->
+
+            </div>
+            <div class="col offset-lg-3 offset-2 ">
+                <div class="row mt-5">
+                    <div class="col ">
+                        <div class="card mt-5">
+                            <div class="card-body">
+                                <div class="row justify-content-end">
+                                    <div class="col-11">
+                                        <h5 class="card-title"> Food </h5>
+
+                                    </div>
+                                    <div class="col ">
+                                        <a  class="btn-floating" data-toggle="collapse" data-target="#foodRow">  <i class="fas fa-minus-square" style=" color:cornflowerblue"></i></a>
+                                    </div>
+                                </div>
+
+                                <!--
+                    <div class="row mt-5 pt-5">
+                        <h3 class="mt-5">Food</h3>
+                    </div>
+                         -->
+                                <p class="card-text">Reykjavik has an impressive number of quality restaurants, staffed with award winning chefs that create both imaginative and delicious cusine. </p>
+                                <a href="https://visitreykjavik.is/wine-dine-reykjavik" class="card-link d-flex justify-content-end"><h6>See More <i class="fas fa-angle-double-right"></i></h6></a>
+                                <div class="row collapse show" id="foodRow">
+                                    <div class="col">
+                                        <div id="foodCards" class="carousel slide" data-interval="false">
+                                            <div class="carousel-inner">
+                                                <div class="carousel-item active">
+                                                    <div class="row ">
+                                                        <div class="col ">
+                                                            <div class="card mb-1 ml-1" style="width: 15rem; height: 23rem; ">
+                                                                <img class="card-img-top" src="images/proto/grillo.JPG" alt="Card image cap" style="height:10rem; object-fit:cover;">
+                                                                <div class="card-body" style="overflow:hidden">
+                                                                    <h5 class="card-title">Sjávargrillið</h5>
+                                                                    <p class="card-text" style="overflow:hidden"> A seafood grill in located at  Skólavörðustígur 14 that serves many of Icelandic’s traditional dishes with high-class flair. </p>
+
+                                                                </div>
+                                                                <div class="card-body">
+                                                                    <a href="https://visitreykjavik.is/sjavargrillid" class="card-link d-flex justify-content-end"><h6>Read More <i class="fas fa-angle-double-right"></i></h6></a>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+
+                                                        <div class="col ">
+                                                            <div class="card mb-1" style="width: 15rem; height: 23rem; ">
+                                                                <img class="card-img-top" src="images/proto/dog.png" alt="Hot Dogs" style="height:10rem; object-fit:cover;">
+                                                                <div class="card-body" style="overflow:hidden">
+                                                                    <h5 class="card-title">Bæjarins beztu</h5>
+                                                                    <p class="card-text">Bæjarins beztu pylsur (English: The best hot dog in town) often shortened to simply “Bæjarins beztu”, is a popular hot dog stand in central Reykjavík, Iceland. In August 2006, the British newspaper The Guardian selected Bæjarins beztu as the best hot dog stand in Europe.</p>
+
+                                                                </div>
+                                                                <div class="card-body">
+                                                                    <a href="https://visitreykjavik.is/sjavargrillid" class="card-link d-flex justify-content-end"><h6>Read More <i class="fas fa-angle-double-right"></i></h6></a>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        <div class="col d-lg-block d-none ">
+                                                            <div class="card mb-1" style="width: 15rem; height: 23rem;">
+                                                                <img class="card-img-top" src="images/proto/cat.png" alt="Card image cap" style="height:10rem; object-fit:cover;">
+                                                                <div class="card-body" style="overflow:hidden">
+                                                                    <h5 class="card-title">Kattakaffihusid</h5>
+                                                                    <p class="card-text">
+                                                                        Kattakaffihusid is Iceland's first cat cafe. We opened on March 1st 2018 but the first cat cafe opened in Taiwan in 1998 and they have since then been growing in popularity during the past 20 years. Cat cafes are very popular in Asia and have also opened in the US, Canada as well as in Europe during the past years.
+                                                                    </p>
+
+                                                                </div>
+                                                                <div class="card-body">
+                                                                    <a href="https://visitreykjavik.is/sjavargrillid" class="card-link d-flex justify-content-end"><h6>Read More <i class="fas fa-angle-double-right"></i></h6></a>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+
+
+
+                                                </div>
+                                                <div class="carousel-item">
+                                                    <div class="row ">
+                                                        <div class="col ">
+                                                            <div class="card mb-1 ml-1" style="width: 15rem; height: 23rem; ">
+                                                                <img class="card-img-top" src="images/proto/fish.png" alt="Card image cap" style="height:10rem; object-fit:cover;">
+                                                                <div class="card-body" style="overflow:hidden">
+                                                                    <h5 class="card-title">Fish Shop and Kitchen</h5>
+                                                                    <p class="card-text" style="overflow:hidden"> Welcome to our new Fish Shop & Kitchen, located in Hagamelur 67, 107 Reykjavík. It is a special place to visit in a local neighborhood with cozy environment and fresh street food. So come by, taste and enjoy everything our kitchen has to offer. </p>
+
+                                                                </div>
+                                                                <div class="card-body">
+                                                                    <a href="https://visitreykjavik.is/sjavargrillid" class="card-link d-flex justify-content-end"><h6>Read More <i class="fas fa-angle-double-right"></i></h6></a>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        <div class="col ">
+                                                            <div class="card mb-1" style="width: 15rem; height: 23rem;">
+                                                                <img class="card-img-top" src="images/proto/street.JPG" alt="Secret Cellar" style="height:10rem; object-fit:cover;">
+                                                                <div class="card-body" style="overflow:hidden">
+                                                                    <h5 class="card-title">Icelandic Street Food</h5>
+                                                                    <p class="card-text " style="overflow:hidden; ">
+                                                                        Icelandic Street Food is the first fast food concept in Iceland with traditional Icelandic food, the idea was to give all visitors of the country the fullest experience of home made Icelandic traditional food without going out and spending fortune for fine dining.
+                                                                    </p>
+
+                                                                </div>
+                                                                <div class="card-body">
+                                                                    <a href="https://visitreykjavik.is/sjavargrillid" class="card-link d-flex justify-content-end"><h6>Read More <i class="fas fa-angle-double-right"></i></h6></a>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        <div class="col d-lg-block d-none">
+                                                            <div class="card mb-1" style="width: 15rem; height: 23rem; ">
+                                                                <img class="card-img-top" src="images/proto/candy.jpg" alt="Hot Dogs" style="height:10rem; object-fit:cover;">
+                                                                <div class="card-body" style="overflow:hidden">
+                                                                    <h5 class="card-title">Vínberið</h5>
+                                                                    <p class="card-text"> Local Icelandic candy store. Come try some truffles or Omnom chocolate!</p>
+
+                                                                </div>
+                                                                <div class="card-body">
+                                                                    <a href="https://visitreykjavik.is/sjavargrillid" class="card-link d-flex justify-content-end"><h6>Read More <i class="fas fa-angle-double-right"></i></h6></a>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+
+                                                    </div>
+
+                                                </div>
+                                            </div>
+                                            <a class="carousel-control-prev" href="#foodCards" role="button" data-slide="prev" style=" bottom:50px; ">
+
+                                                <i style="font-size:50px; color:cornflowerblue" class="fas fa-chevron-left"></i>
+                                                <span class="sr-only">Previous</span>
+                                            </a>
+                                            <a class="carousel-control-next" href="#foodCards" role="button" data-slide="next" style=" bottom:50px; ">
+
+                                                <i style="font-size:50px; color:cornflowerblue" class="fas fa-chevron-right"></i>
+                                                <span class="sr-only">Next</span>
+                                            </a>
+
+                                        </div>
+
+
+
+                                    </div>
+
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row mt-2">
+                    <div class="col mt-3">
+                        <div class="card ">
+                            <div class="card-body">
+                                <div class="row justify-content-end">
+                                    <div class="col-11">
+                                        <h5 class="card-title"> Bars </h5>
+
+                                    </div>
+                                    <div class="col ">
+                                        <a class="btn-floating" data-toggle="collapse" data-target="#barRow">  <i class="fas fa-minus-square" style=" color:cornflowerblue"></i></a>
+</div>
+                                </div>
+                                <!--
+                    <div class="row mt-5 pt-5">
+                        <h3 class="mt-5">Food</h3>
+                    </div>
+                         -->
+                                <p class="card-text">Reykjavík’s legendary nightlife, or "jammith" as the locals say, is certainly gaining a reputation for being one of the hottest places to party in the world today! </p>
+                                <a href="https://visitreykjavik.is/nightlife-reykjavik" class="card-link d-flex justify-content-end"><h6>See More <i class="fas fa-angle-double-right"></i></h6></a>
+                                <div class="row collapse show" id="barRow">
+                                    <div class="col">
+                                        <div id="barCards" class="carousel slide" data-interval="false">
+                                            <div class="carousel-inner">
+                                                <div class="carousel-item active">
+                                                    <div class="row ">
+                                                        <div class="col ">
+                                                            <div class="card ml-1 mb-1" style="width: 15rem; height: 23rem; ">
+                                                                <img class="card-img-top" src="images/proto/pat.jpg" alt="Card image cap" style="height:10rem; object-fit:cover;">
+                                                                <div class="card-body" style="overflow:hidden">
+                                                                    <h5 class="card-title">Patterson Suite</h5>
+                                                                    <p class="card-text" style="overflow:hidden"> A bar on the roof of a historic building converted into a music venue. </p>
+
+                                                                </div>
+                                                                <div class="card-body">
+                                                                    <a href="https://visitreykjavik.is/sjavargrillid" class="card-link d-flex justify-content-end"><h6>Read More <i class="fas fa-angle-double-right"></i></h6></a>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                       
+                                                        <div class="col ">
+                                                            <div class="card mb-1" style="width: 15rem; height: 23rem; ">
+                                                                <img class="card-img-top" src="images/proto/skull.jpg" alt="Skúli Craft Bar" style="height:10rem; object-fit:cover;">
+                                                                <div class="card-body" style="overflow:hidden">
+                                                                    <h5 class="card-title">Skúli Craft Bar</h5>
+                                                                    <p class="card-text">
+                                                                        Local bar with tons of unique craft beers.
+                                                                    </p>
+
+                                                                </div>
+                                                                <div class="card-body">
+                                                                    <a href="https://visitreykjavik.is/sjavargrillid" class="card-link d-flex justify-content-end"><h6>Read More <i class="fas fa-angle-double-right"></i></h6></a>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        <div class="col  d-lg-block d-none ">
+                                                            <div class="card mb-1" style="width: 15rem; height: 23rem; ">
+                                                                <img class="card-img-top" src="images/proto/ice.jpg" alt="Card image cap" style="height:10rem; object-fit:cover;">
+                                                                <div class="card-body" style="overflow:hidden">
+                                                                    <h5 class="card-title">Magic Ice Bar</h5>
+                                                                    <p class="card-text" style="overflow:hidden">
+                                                                        A perfect outing for all ages – Welcome to an enchanting and magical adventure in Reykjavik, a sub-zero experience that you’ll never forget! Inside find an ice-art gallery with sculptures & a bar, all made in crystal clear ice.
+                                                                    </p>
+
+                                                                </div>
+                                                                <div class="card-body">
+                                                                    <a href="https://visitreykjavik.is/sjavargrillid" class="card-link d-flex justify-content-end"><h6>Read More <i class="fas fa-angle-double-right"></i></h6></a>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+
+
+
+                                                </div>
+                                                <div class="carousel-item">
+                                                    <div class="row ">
+                                                        
+                                                        <div class="col ">
+                                                            <div class="card ml-1 mb-1" style="width: 15rem; height: 23rem;">
+                                                                <img class="card-img-top" src="images/proto/secret.jpg" alt="Secret Cellar" style="height:10rem; object-fit:cover;">
+                                                                <div class="card-body" style="overflow:hidden">
+                                                                    <h5 class="card-title">The Secret Cellar</h5>
+                                                                    <p class="card-text " style="overflow:hidden; ">The Secret Cellar is Iceland's first and only comedy club. Run by the dynamic trio Bjarni "the Magic Viking", Dan "Jesus" Zerin and Davíð "the Why We Can't Have Nice Things". We run live events every night in English. The shows are free, except for selected shows.</p>
+
+                                                                </div>
+                                                                <div class="card-body">
+                                                                    <a href="https://visitreykjavik.is/sjavargrillid" class="card-link d-flex justify-content-end"><h6>Read More <i class="fas fa-angle-double-right"></i></h6></a>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        <div class="col ">
+                                                            <div class="card mb-1" style="width: 15rem; height: 23rem; ">
+                                                                <img class="card-img-top" src="images/proto/Bruggian.jpg" alt="Hot Dogs" style="height:10rem ; object-fit:cover;">
+                                                                <div class="card-body" style="overflow:hidden">
+                                                                    <h5 class="card-title">Bryggjan Brugghus</h5>
+                                                                    <p class="card-text">The first mircrobrewery in Iceland, located by the old harbor in Reykjavik. Drop by for a tour of our brewery, a good meal, or just some otherworldly beer that we of course brew on site.</p>
+
+                                                                </div>
+                                                                <div class="card-body">
+                                                                    <a href="https://visitreykjavik.is/sjavargrillid" class="card-link d-flex justify-content-end"><h6>Read More <i class="fas fa-angle-double-right"></i></h6></a>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        <div class="col  d-lg-block d-none">
+                                                            <div class="card mb-1" style="width: 15rem; height: 23rem;">
+                                                                <img class="card-img-top" src="images/proto/cat.png" alt="Card image cap" style="height:10rem; object-fit:cover;">
+                                                                <div class="card-body" style="overflow:hidden">
+                                                                    <h5 class="card-title">Kattakaffihusid</h5>
+                                                                    <p class="card-text">
+                                                                        Kattakaffihusid is Iceland's first cat cafe. We opened on March 1st 2018 but the first cat cafe opened in Taiwan in 1998 and they have since then been growing in popularity during the past 20 years. Cat cafes are very popular in Asia and have also opened in the US, Canada as well as in Europe during the past years.
+                                                                    </p>
+
+                                                                </div>
+                                                                <div class="card-body">
+                                                                    <a href="https://visitreykjavik.is/sjavargrillid" class="card-link d-flex justify-content-end"><h6>Read More <i class="fas fa-angle-double-right"></i></h6></a>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+
+                                                </div>
+                                            </div>
+                                            <a class="carousel-control-prev" href="#barCards" role="button" data-slide="prev" style=" bottom:50px; ">
+
+                                                <i style="font-size:50px; color:cornflowerblue" class="fas fa-chevron-left"></i>
+                                                <span class="sr-only">Previous</span>
+                                            </a>
+                                            <a class="carousel-control-next" href="#barCards" role="button" data-slide="next" style=" bottom:50px; ">
+
+                                                <i style="font-size:50px; color:cornflowerblue" class="fas fa-chevron-right"></i>
+                                                <span class="sr-only">Next</span>
+                                            </a>
+
+                                        </div>
+
+
+
+                                    </div>
+
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row mt-2">
+                    <div class="col mt-3">
+                        <div class="card ">
+                            <div class="card-body">
+                                <div class="row justify-content-end">
+                                    <div class="col-11">
+                                        <h5 class="card-title"> Museums </h5>
+
+                                    </div>
+                                    <div class="col ">
+                                        <a class="btn-floating" data-toggle="collapse" data-target="#artRow">  <i class="fas fa-minus-square" style=" color:cornflowerblue"></i></a>
+</div>
+                                </div>
+                                <!--
+                    <div class="row mt-5 pt-5">
+                        <h3 class="mt-5">Food</h3>
+                    </div>
+                         -->
+                                <p class="card-text">Reykjavík is the place to be for those with an interest in the world of arts and culture. It is home to the majority of our most prestigious cultural institutions and talented performers and artists.  </p>
+                                <a href="https://visitreykjavik.is/reykjavik-arts-culture" class="card-link d-flex justify-content-end"><h6>See More  <i class="fas fa-angle-double-right"></i></h6></a>
+                                <div class="row collapse show" id="artRow">
+                                    <div class="col">
+                                        <div id="artCards" class="carousel slide" data-interval="false">
+                                            <div class="carousel-inner">
+                                                <div class="carousel-item active">
+                                                    <div class="row ">
+                                                        <div class="col ">
+                                                            <div class="card ml-1 mb-1" style="width: 15rem; height: 23rem; ">
+                                                                <img class="card-img-top" src="images/proto/punk.jpg" alt="Card image cap" style="height:10rem; object-fit:cover;">
+                                                                <div class="card-body" style="overflow:hidden">
+                                                                    <h5 class="card-title">Punk Museum</h5>
+                                                                    <p class="card-text" style="overflow:hidden">
+                                                                        A small museum with a big attitude. The museum has on display photos, sounds, posters, instruments, clothes and various other memorabilia from the 80-90's punk scene in Iceland. Even the museum's host, Álfur, is an original punk. The museum is curated by Dr. Gunni, a veteran of rock and a historian of the Icelandic music scene.
+                                                                    </p>
+
+                                                                </div>
+                                                                <div class="card-body">
+                                                                    <a href="https://visitreykjavik.is/sjavargrillid" class="card-link d-flex justify-content-end"><h6>Read More <i class="fas fa-angle-double-right"></i></h6></a>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        <div class="col ">
+                                                            <div class="card mb-1" style="width: 15rem; height: 23rem;">
+                                                                <img class="card-img-top" src="images/proto/rooster.jpg" alt="Secret Cellar" style="height:10rem; object-fit:cover;">
+                                                                <div class="card-body" style="overflow:hidden">
+                                                                    <h5 class="card-title">Phallological Museum</h5>
+                                                                    <p class="card-text " style="overflow:hidden; ">The Icelandic Phallological Museum is probably the only museum in the world to contain a collection of phallic specimens belonging to all the various types of mammal found in a single country. Phallology is an ancient science which, until recent years, has received very little attention in Iceland, except as a borderline field of study in other academic disciplines such as history, art, </p>
+
+                                                                </div>
+                                                                <div class="card-body">
+                                                                    <a href="https://visitreykjavik.is/sjavargrillid" class="card-link d-flex justify-content-end"><h6>Read More <i class="fas fa-angle-double-right"></i></h6></a>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        <div class="col  d-lg-block d-none">
+                                                            <div class="card mb-1" style="width: 15rem; height: 23rem; ">
+                                                                <img class="card-img-top" src="images/proto/dog.png" alt="Hot Dogs" style="height:10rem; object-fit:cover;">
+                                                                <div class="card-body" style="overflow:hidden">
+                                                                    <h5 class="card-title">Settlement Exhibition</h5>
+                                                                    <p class="card-text">
+                                                                        The Settlement Exhibition Reykjavík is an exhibition on the settlement of Reykjavík, Iceland, created by the Reykjavik City Museum. The exhibition is based on the archaeological excavation of the ruin of one of the first houses in Iceland and findings from other excavations in the city centre.
+                                                                    </p>
+
+                                                                </div>
+                                                                <div class="card-body">
+                                                                    <a href="https://visitreykjavik.is/sjavargrillid" class="card-link d-flex justify-content-end"><h6>Read More <i class="fas fa-angle-double-right"></i></h6></a>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                       
+                                                    </div>
+
+
+
+                                                </div>
+                                                <div class="carousel-item">
+                                                    <div class="row ">
+                                                        <div class="col ">
+                                                            <div class="card ml-1 mb-1" style="width: 15rem; height: 23rem; ">
+                                                                <img class="card-img-top" src="images/proto/grillo.JPG" alt="Card image cap" style="height:10rem; object-fit:cover;">
+                                                                <div class="card-body" style="overflow:hidden">
+                                                                    <h5 class="card-title">Sjávargrillið</h5>
+                                                                    <p class="card-text" style="overflow:hidden"> A seafood grill in located at  Skólavörðustígur 14 that serves many of Icelandic’s traditional dishes with high-class flair. </p>
+
+                                                                </div>
+                                                                <div class="card-body">
+                                                                    <a href="https://visitreykjavik.is/sjavargrillid" class="card-link d-flex justify-content-end"><h6>Read More <i class="fas fa-angle-double-right"></i></h6></a>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        <div class="col ">
+                                                            <div class="card mb-1" style="width: 15rem; height: 23rem;">
+                                                                <img class="card-img-top" src="images/proto/secret.jpg" alt="Secret Cellar" style="height:10rem; object-fit:cover;">
+                                                                <div class="card-body" style="overflow:hidden">
+                                                                    <h5 class="card-title">The Secret Cellar</h5>
+                                                                    <p class="card-text " style="overflow:hidden; ">The Secret Cellar is Iceland's first and only comedy club. Run by the dynamic trio Bjarni "the Magic Viking", Dan "Jesus" Zerin and Davíð "the Why We Can't Have Nice Things". We run live events every night in English. The shows are free, except for selected shows.</p>
+
+                                                                </div>
+                                                                <div class="card-body">
+                                                                    <a href="https://visitreykjavik.is/sjavargrillid" class="card-link d-flex justify-content-end"><h6>Read More <i class="fas fa-angle-double-right"></i></h6></a>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        <div class="col  d-lg-block d-none">
+                                                            <div class="card mb-1" style="width: 15rem; height: 23rem; ">
+                                                                <img class="card-img-top" src="images/proto/dog.png" alt="Hot Dogs" style="height:10rem; object-fit:cover;">
+                                                                <div class="card-body" style="overflow:hidden">
+                                                                    <h5 class="card-title">Bæjarins beztu</h5>
+                                                                    <p class="card-text">æjarins beztu pylsur (English: The best hot dog in town) often shortened to simply “Bæjarins beztu”, is a popular hot dog stand in central Reykjavík, Iceland. In August 2006, the British newspaper The Guardian selected Bæjarins beztu as the best hot dog stand in Europe.</p>
+
+                                                                </div>
+                                                                <div class="card-body">
+                                                                    <a href="https://visitreykjavik.is/sjavargrillid" class="card-link d-flex justify-content-end"><h6>Read More <i class="fas fa-angle-double-right"></i></h6></a>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                       
+                                                    </div>
+
+                                                </div>
+                                            </div>
+                                            <a class="carousel-control-prev" href="#artCards" role="button" data-slide="prev" style=" bottom:50px; ">
+
+                                                <i style="font-size:50px; color:cornflowerblue" class="fas fa-chevron-left"></i>
+                                                <span class="sr-only">Previous</span>
+                                            </a>
+                                            <a class="carousel-control-next" href="#artCards" role="button" data-slide="next" style=" bottom:50px; ">
+
+                                                <i style="font-size:50px; color:cornflowerblue" class="fas fa-chevron-right"></i>
+                                                <span class="sr-only">Next</span>
+                                            </a>
+
+                                        </div>
+
+
+
+                                    </div>
+
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row my-2">
+                    <div class="col my-3">
+                        <div class="card ">
+                            <div class="card-body">
+                                <div class="row justify-content-end">
+                                    <div class="col-11">
+                                        <h5 class="card-title"> Monuments </h5>
+
+                                    </div>
+                                    <div class="col ">
+                                        <a class="btn-floating" data-toggle="collapse" data-target="#monuRow">  <i class="fas fa-minus-square" style=" color:cornflowerblue"></i></a>
+</div>
+                                </div>
+                                <!--
+                    <div class="row mt-5 pt-5">
+                        <h3 class="mt-5">Food</h3>
+                    </div>
+                         -->
+                                <p class="card-text">Reykjavík is home to an impressive collection of interesting attractions and places of historic significance with much to intrigue the curiosity of visitors to the city. </p>
+                                <a href="https://visitreykjavik.is/places-interest-around-reykjavik" class="card-link d-flex justify-content-end"><h6>See More <i class="fas fa-angle-double-right"></i></h6></a>
+                                <div class="row collapse show" id="monuRow">
+                                    <div class="col">
+                                        <div id="monuCards" class="carousel slide" data-interval="false">
+                                            <div class="carousel-inner">
+                                                <div class="carousel-item active">
+                                                    <div class="row ">
+                                                        <div class="col ">
+                                                            <div class="card ml-1 mb-1" style="width: 15rem; height: 23rem; ">
+                                                                <img class="card-img-top" src="images/proto/sun.jpg" alt="Card image cap" style="height:10rem; object-fit:cover;">
+                                                                <div class="card-body" style="overflow:hidden">
+                                                                    <h5 class="card-title">Sun Voyager</h5>
+                                                                    <p class="card-text" style="overflow:hidden">
+                                                                        The Sun Voyager is a sculpture by Jón Gunnar Árnason, located next to the Sæbraut road in Reykjavík, Iceland. Sun Voyager is described as a dreamboat, or an ode to the Sun.
+                                                                    </p>
+
+                                                                </div>
+                                                                <div class="card-body">
+                                                                    <a href="https://visitreykjavik.is/sjavargrillid" class="card-link d-flex justify-content-end"><h6>Read More <i class="fas fa-angle-double-right"></i></h6></a>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        <div class="col ">
+                                                            <div class="card mb-1" style="width: 15rem; height: 23rem;">
+                                                                <img class="card-img-top" src="images/proto/church.JPG" alt="Secret Cellar" style="height:10rem; object-fit:cover;">
+                                                                <div class="card-body" style="overflow:hidden">
+                                                                    <h5 class="card-title">Hallgrímskirkja Church</h5>
+                                                                    <p class="card-text " style="overflow:hidden; ">Reykjavík's main landmark and its tower can be seen from almost everywhere in the city.</p>
+
+                                                                </div>
+                                                                <div class="card-body">
+                                                                    <a href="https://visitreykjavik.is/sjavargrillid" class="card-link d-flex justify-content-end"><h6>Read More <i class="fas fa-angle-double-right"></i></h6></a>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        <div class="col  d-lg-block d-none">
+                                                            <div class="card mb-1" style="width: 15rem; height: 23rem; ">
+                                                                <img class="card-img-top" src="images/proto/Pride.jpg" alt="Rainbow Road" style="height:10rem; object-fit:cover;">
+                                                                <div class="card-body" style="overflow:hidden">
+                                                                    <h5 class="card-title">Rainbow Road</h5>
+                                                                    <p class="card-text">Painted during Reykjavik's Pride Festival, come take pictures on Rainbow Road!</p>
+
+                                                                </div>
+                                                                <div class="card-body">
+                                                                    <a href="https://visitreykjavik.is/sjavargrillid" class="card-link d-flex justify-content-end"><h6>Read More <i class="fas fa-angle-double-right"></i></h6></a>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        
+                                                    </div>
+
+
+
+                                                </div>
+                                                <div class="carousel-item">
+                                                    <div class="row ">
+                                                        <div class="col ">
+                                                            <div class="card ml-1 mb-1" style="width: 15rem; height: 23rem; ">
+                                                                <img class="card-img-top" src="images/proto/trash.jpg" alt="The Recycled House" style="height:10rem; object-fit:cover;">
+                                                                <div class="card-body" style="overflow:hidden">
+                                                                    <h5 class="card-title">The Recycled House</h5>
+                                                                    <p class="card-text" style="overflow:hidden">
+                                                                        On the edge of Reykjavik a house of recycled parts can be found. This strange artwork was created by film director Hrafn Gunnlaugsson.
+                                                                    </p>
+
+                                                                </div>
+                                                                <div class="card-body">
+                                                                    <a href="https://visitreykjavik.is/sjavargrillid" class="card-link d-flex justify-content-end"><h6>Read More <i class="fas fa-angle-double-right"></i></h6></a>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        <div class="col ">
+                                                            <div class="card mb-1" style="width: 15rem; height: 23rem;">
+                                                                <img class="card-img-top" src="images/proto/secret.jpg" alt="Secret Cellar" style="height:10rem; object-fit:cover;">
+                                                                <div class="card-body" style="overflow:hidden">
+                                                                    <h5 class="card-title">The Secret Cellar</h5>
+                                                                    <p class="card-text " style="overflow:hidden; ">The Secret Cellar is Iceland's first and only comedy club. Run by the dynamic trio Bjarni "the Magic Viking", Dan "Jesus" Zerin and Davíð "the Why We Can't Have Nice Things". We run live events every night in English. The shows are free, except for selected shows.</p>
+
+                                                                </div>
+                                                                <div class="card-body">
+                                                                    <a href="https://visitreykjavik.is/sjavargrillid" class="card-link d-flex justify-content-end"><h6>Read More <i class="fas fa-angle-double-right"></i></h6></a>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        <div class="col  d-lg-block d-none">
+                                                            <div class="card mb-1" style="width: 15rem; height: 23rem; ">
+                                                                <img class="card-img-top" src="images/proto/dog.png" alt="Hot Dogs" style="height:10rem; object-fit:cover;">
+                                                                <div class="card-body" style="overflow:hidden">
+                                                                    <h5 class="card-title">Bæjarins beztu</h5>
+                                                                    <p class="card-text">æjarins beztu pylsur (English: The best hot dog in town) often shortened to simply “Bæjarins beztu”, is a popular hot dog stand in central Reykjavík, Iceland. In August 2006, the British newspaper The Guardian selected Bæjarins beztu as the best hot dog stand in Europe.</p>
+
+                                                                </div>
+                                                                <div class="card-body">
+                                                                    <a href="https://visitreykjavik.is/sjavargrillid" class="card-link d-flex justify-content-end"><h6>Read More <i class="fas fa-angle-double-right"></i></h6></a>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+  
+                                                    </div>
+
+                                                </div>
+                                            </div>
+                                            <a class="carousel-control-prev" href="#monuCards" role="button" data-slide="prev" style=" bottom:50px; ">
+
+                                                <i style="font-size:50px; color:cornflowerblue" class="fas fa-chevron-left"></i>
+                                                <span class="sr-only">Previous</span>
+                                            </a>
+                                            <a class="carousel-control-next" href="#monuCards" role="button" data-slide="next" style=" bottom:50px; ">
+
+                                                <i style="font-size:50px; color:cornflowerblue" class="fas fa-chevron-right"></i>
+                                                <span class="sr-only">Next</span>
+                                            </a>
+
+                                        </div>
+
+
+
+                                    </div>
+
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+
+
+</body>
+</html>
+

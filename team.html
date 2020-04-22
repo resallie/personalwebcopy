@@ -1,0 +1,162 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+    <!-- new-ka COLA -->
+    <script src="js/jquery-3.4.1.min.js"></script>
+    <script src="js/bootstrap.js"></script>
+    <script src="js/datatables.min.js"></script>
+    <script src="js/mdb.js"></script>
+    <script defer src="js/all.js"></script> <!--load all styles -->
+    <link rel="stylesheet" type="text/css" href="css/bootstrap.css">
+    <link rel="stylesheet" type="text/css" href="css/datatables.min.css">
+    <link rel="stylesheet" type="text/css" href="css/mdb.css" />
+    <link href="css/all.css" rel="stylesheet"> <!--load all styles -->
+</head>
+<body>
+
+
+
+
+    <!-- Menu -->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <a class="navbar-brand" href="#">
+            <img src="images/wpi.png" width="100" alt="">
+        </a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav mr-auto">
+                <li class="nav-item ">
+                    <a class="nav-link" href="index.html">Home</a>
+                </li>
+                <li class="nav-item active">
+                    <a class="nav-link" href="team.html">Meet the Team <span class="sr-only">(current)</span></a>
+                </li>
+                <li class="nav-item ">
+                    <a class="nav-link" href="cats.html">Meet the Cats </a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="report.html">Read Full Report</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="proto.html">Recommendation Prototype</a>
+                </li>
+                <li class="nav-item ">
+                    <a class="nav-link" href="round.html">Photo Spheres</a>
+                </li>
+                <!--
+    <li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            Dropdown
+        </a>
+        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+            <a class="dropdown-item" href="#">Action</a>
+            <a class="dropdown-item" href="#">Another action</a>
+            <div class="dropdown-divider"></div>
+            <a class="dropdown-item" href="#">Something else here</a>
+        </div>
+    </li>
+
+    <li class="nav-item">
+        <a class="nav-link disabled" href="#">Disabled</a>
+    </li>
+        -->
+            </ul>
+           
+            <form class="form-inline my-2 my-lg-0">
+                <!--<input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search"> -->
+                <div class="custom-control custom-switch">
+                    <input id="dark" type="checkbox" class="custom-control-input" >
+                    <label class="custom-control-label" for="dark" style="color:whitesmoke">Dark Mode</label>
+                    <script>
+                        $('#dark').click(function () {
+                            console.log('help');
+                            if ($('#dark').prop('checked')) {
+                                $('#coulterJ').show(); $('#coulterP').hide(); $('#coulter').attr('src', 'images/coulter.jpg');
+                                $('#samJ').show(); $('#samP').hide(); $('#sam').attr('src', 'images/sam.png');
+                                $('#rachaelJ').show(); $('#rachaelP').hide(); $('#rachael').attr('src', 'images/rachael.jpg');
+                                $('#kennyJ').show(); $('#kennyP').hide(); $('#kenny').attr('src', 'images/kenny.png');
+                            } else {
+                                $('#coulter').attr('src', 'images/coulter1.jpg'); $('#coulterP').show(); $('#coulterJ').hide();
+                                $('#samP').show(); $('#samJ').hide(); $('#sam').attr('src', 'images/sam1.jpg');
+                                $('#rachaelP').show(); $('#rachaelJ').hide(); $('#rachael').attr('src', 'images/rachael1.JPG');
+                                $('#kennyP').show(); $('#kennyJ').hide(); $('#kenny').attr('src', 'images/kenny1.jpg');}
+                        });
+                    </script>
+                </div>
+               
+            </form>
+        </div>
+    </nav>
+    <div class="container">
+        <div class="row mt-5">
+            <div class="col mb-5 justify-content-center">
+                <div class="card" style="width: 15rem;">
+                    <img id="sam" class="card-img-top" src="images/sam1.jpg" alt="Card image cap">
+                    <div class="card-body">
+                        <h5 class="card-title">Samantha Grillo</h5>
+                        <div id="samJ" style="display:none;"><p class="card-text">Hi, I'm Sam! I make robots, and I also really like photography and plants!</p></div>
+                        <div id="samP">
+                            <p class="card-text">Sam is pursuing a Bachelors and Masters degree in Robotics Engineering and a Visual Art minor. She loves hiking, photography, and a good science fiction movie.</p>
+                            <p class="card-text"> <b>Fun Fact:</b> She currently owns 57 plants, and that number is growing.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col justify-content-center">
+                <div class="card mb-5" style="width: 15rem;" >
+                    <img id="coulter" class="card-img-top" src="images/coulter1.jpg" alt="Card image cap"  >
+                    <div class="card-body">
+                        <h5 class="card-title">Coulter Ralston</h5>
+                        <div id="coulterJ" style="display:none">
+                            <p  class="card-text">My name's Coulter and I like to run.... Away from those 'birds'</p>
+                        </div>
+                        
+                        <div id="coulterP">
+                            <p class="card-text">Coulter is majoring in Biomedical Engineering with a focus of Biomaterials. Outside of his studies, he loves to hike mountains and run long distances.</p>
+                            <p class="card-text"><b>Fun Fact:</b> He hiked the Presidential Traverse all by himself in one day.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col justify-content-center">
+                <div class="card" style="width: 15rem;" >
+                    <img id="kenny" class="card-img-top" src="images/kenny1.jpg" alt="Card image cap">
+                    <div class="card-body">
+                        <h5 class="card-title">Kenneth Rhodes</h5>
+                        <div id="kennyJ" style="display:none;"><p class="card-text">Greetings, this is Kenny. Were you aware that 'lich' is the Old English word for 'corpse'?</p></div>
+                        <div id="kennyP">
+                            <p class="card-text">Kenny is pursuing a Bachelors degree in Computer Science and a Robotics Engineering minor. He loves robots, terrible arguments, and Tetris. He came to Iceland because GoT was filmed here and his dad raves about it.</p>
+                            <p class="card-text"><b>Fun Fact:</b> Has been deported</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col justify-content-center">
+                <div class="card" style="width: 15rem;">
+                    <img id="rachael" class="card-img-top" src="images/rachael1.JPG" alt="Card image cap">
+                    <div class="card-body">
+                        <h5 class="card-title">Rachael Sallie</h5>
+                        <div id="rachaelP">
+                            <p class="card-text">Rachael is currently studying Computer Science and minoring in Interactive Media & Game Development. She loves plants, worldbuilding, and taking nature photography. </p>
+                            <p class="card-text"> <b>Fun Fact:</b> She created this website!</p>
+                        </div>
+                        <div id="rachaelJ" style="display:none;"><p class="card-text">Hey, it's Rachael! When I'm not doing computer magic, I focus on my life long goal of meeting every cat.</p></div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+    </div>
+
+
+
+
+
+</body>
+</html>

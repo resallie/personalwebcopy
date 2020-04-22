@@ -1,0 +1,162 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+    <!-- new-ka COLA -->
+    <script src="js/jquery-3.4.1.min.js"></script>
+    <script src="js/bootstrap.js"></script>
+    <script src="js/datatables.min.js"></script>
+    <script src="js/mdb.js"></script>
+    <script defer src="js/all.js"></script> <!--load all styles -->
+    <link rel="stylesheet" type="text/css" href="css/bootstrap.css">
+    <link rel="stylesheet" type="text/css" href="css/datatables.min.css">
+    <link rel="stylesheet" type="text/css" href="css/mdb.css" />
+    <link href="css/all.css" rel="stylesheet"> <!--load all styles -->
+</head>
+<body>
+
+
+
+
+    <!-- Menu -->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-primary fixed-top">
+        <a class="navbar-brand" href="https://visitreykjavik.is">
+            <img src="images/proto/logo.png" width="75" alt="">
+        </a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav mr-auto">
+                <li class="nav-item active">
+                    <a class="nav-link" href="proto.html">Home <span class="sr-only">(current)</span></a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="map.html">Event Map</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="event.html">Things To Do</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="form.html">Add Your Event</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="index.html">Back to IQP Website</a>
+                </li>
+                <!--
+        <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                Dropdown
+            </a>
+            <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                <a class="dropdown-item" href="#">Action</a>
+                <a class="dropdown-item" href="#">Another action</a>
+                <div class="dropdown-divider"></div>
+                <a class="dropdown-item" href="#">Something else here</a>
+            </div>
+        </li>
+
+        <li class="nav-item">
+            <a class="nav-link disabled" href="#">Disabled</a>
+        </li>
+            -->
+            </ul>
+            <!--
+    <form class="form-inline my-2 my-lg-0">
+        <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
+        <button class="btn btn-indigo my-2 my-sm-0" type="submit">Search</button>
+    </form>-->
+        </div>
+    </nav>
+    <div class="container">
+        <div class="row mt-5">
+            <div class="col justify-content-center">
+                <div id="sitePics" class="carousel slide carousel-fade" data-ride="carousel">
+                    <div class="carousel-inner">
+                        <div class="carousel-item active">
+                            <div class="view">
+                                <img class="d-block w-100 " style="image-orientation: from-image" src="images/proto/Bruggian.jpg" />
+                                <div class="mask rgba-black-strong h-50" style="top:50%; background: -moz-linear-gradient(90deg, rgba(0, 0, 0, 1), rgba(13, 17, 198, 0.0) 100%);
+  background: -webkit-linear-gradient(90deg, rgba(0, 0, 0, 1), rgba(13, 17, 198, 0.0) 100%);
+  background: linear-gradient(to 90deg, rgba(0, 0, 0, 1), rgba(13, 17, 198, 0.0) 100%); "></div>
+                            </div>
+                            <div class="carousel-caption">
+                                <h3 class="h3-responsive">Breweries</h3>
+                                <p>Tour a local brewery</p>
+                            </div>
+                        </div>
+                        <div class="carousel-item ">
+                            <div class="view">
+                                <img class="d-block w-100" style="image-orientation: from-image" src="images/proto/Gambi.jpg" />
+                                <div class="mask rgba-black-strong h-50" style="top:50%; background: -moz-linear-gradient(90deg, rgba(0, 0, 0, 1), rgba(13, 17, 198, 0.0) 100%);
+  background: -webkit-linear-gradient(90deg, rgba(0, 0, 0, 1), rgba(13, 17, 198, 0.0) 100%);
+  background: linear-gradient(to 90deg, rgba(0, 0, 0, 1), rgba(13, 17, 198, 0.0) 100%); "></div>
+                            </div>
+                            <div class="carousel-caption">
+                                <h3 class="h3-responsive">Citywide Views</h3>
+                                <p>Come to the Petersen Rooftop Bar for a 360 degree view of the city</p>
+                            </div>
+                        </div>
+                        <div class="carousel-item ">
+                            <div class="view">
+                                <img class="d-block w-100 " style="image-orientation: from-image" src="images/proto/gambi2.jpg" />
+                                <div class="mask rgba-black-strong h-50" style="top:50%; background: -moz-linear-gradient(90deg, rgba(0, 0, 0, 1), rgba(13, 17, 198, 0.0) 100%);
+  background: -webkit-linear-gradient(90deg, rgba(0, 0, 0, 1), rgba(13, 17, 198, 0.0) 100%);
+  background: linear-gradient(to 90deg, rgba(0, 0, 0, 1), rgba(13, 17, 198, 0.0) 100%); "></div>
+                            </div>
+                            <div class="carousel-caption">
+                                <h3 class="h3-responsive">Bars and Music</h3>
+                                <p>Reykjavik is full of manys unique bars which host many local musicians</p>
+                            </div>
+                        </div>
+                        <div class="carousel-item ">
+                            <div class="view">
+                                <img class="d-block w-100" style="image-orientation: from-image" src="images/proto/Pizza.jpg" />
+                                <div class="mask rgba-black-strong h-50" style="top:50%; background: -moz-linear-gradient(90deg, rgba(0, 0, 0, 1), rgba(13, 17, 198, 0.0) 100%);
+  background: -webkit-linear-gradient(90deg, rgba(0, 0, 0, 1), rgba(13, 17, 198, 0.0) 100%);
+  background: linear-gradient(to 90deg, rgba(0, 0, 0, 1), rgba(13, 17, 198, 0.0) 100%); "></div>
+                            </div>
+                            <div class="carousel-caption">
+                                <h3 class="h3-responsive">Local Food</h3>
+                                <p>Try some local Icelandic cuisine</p>
+                            </div>
+                        </div>
+                        <div class="carousel-item ">
+                            <div class="view">
+                                <img class="d-block w-100 " style="image-orientation: from-image" src="images/proto/Pride.jpg" />
+                                <div class="mask rgba-black-strong h-50" style="top:50%; background: -moz-linear-gradient(90deg, rgba(0, 0, 0, 1), rgba(13, 17, 198, 0.0) 100%);
+  background: -webkit-linear-gradient(90deg, rgba(0, 0, 0, 1), rgba(13, 17, 198, 0.0) 100%);
+  background: linear-gradient(to 90deg, rgba(0, 0, 0, 1), rgba(13, 17, 198, 0.0) 100%); "></div>
+                            </div>
+                            <div class="carousel-caption">
+                                <h3 class="h3-responsive">Festivals and Activities</h3>
+                                <p>Participate in Reykjavik's Culture Night and Pride Celebration</p>
+                            </div>
+                        </div>
+
+                    </div>
+                    <a class="carousel-control-prev" href="#sitePics" role="button" data-slide="prev" >
+
+                        <i style="font-size:50px; color:white" class="fas fa-chevron-left"></i>
+                        <span class="sr-only">Previous</span>
+                    </a>
+                    <a class="carousel-control-next" href="#sitePics" role="button" data-slide="next" >
+
+                        <i style="font-size:50px; color:white" class="fas fa-chevron-right"></i>
+                        <span class="sr-only">Next</span>
+                    </a>
+
+                </div>
+            </div>
+
+        </div>
+
+    </div>
+
+
+
+
+
+</body>
+</html>
